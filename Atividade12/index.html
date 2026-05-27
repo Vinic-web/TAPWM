@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        let estado = "fechada";
+
+        function janelaFechada(elemento) {
+            if (elemento && estado !== "quebrada") {
+                elemento.src = 'fechada.png';
+
+                elemento.alt = 'Janela fechada';
+                estado = "fechada";
+            }
+        }
+        function janelaAberta(elemento) {
+            if (elemento && estado !== "quebrada") {
+                elemento.src = 'aberta.png';
+                elemento.alt = 'Janela aberta';
+                estado = "aberta";
+            }
+        }
+        function janelaQuebrada(elemento) {
+            if (elemento) {
+                elemento.src = 'quebrada.png';
+                elemento.alt = 'Janela quebrada';
+                estado = "quebrada";
+            }
+        }
+
+        window.addEventListener('DOMContentLoaded', function () {
+            const textoElemento = document.getElementById('texto');
+            const janelaElemento = document.getElementById('minhajanela');
+
+            janelaElemento.addEventListener('mouseover', function () {
+                // SÓ muda o texto se NÃO estiver quebrada
+                if (estado !== "quebrada") {
+                    janelaAberta(janelaElemento);
+                    textoElemento.textContent = 'Janela Aberta';
+                }
+            });
+
+            janelaElemento.addEventListener('mouseout', function () {
+                // SÓ muda o texto se NÃO estiver quebrada
+                if (estado !== "quebrada") {
+                    janelaFechada(janelaElemento);
+                    textoElemento.textContent = 'Janela Fechada';
+                }
+            });
+
+            janelaElemento.addEventListener('click', function () {
+                // Só quebra se já não estiver quebrada
+                if (estado !== "quebrada") {
+                    janelaQuebrada(janelaElemento);
+                    textoElemento.textContent = 'Janela Quebrada';
+                }
+            });
+        });
+    </script>
+</head>
+
+<body>
+    <h1 id="texto">Janela Fechada</h1>
+    <img id="minhajanela" src="fechada.png" alt="Janela" title="Janela">
+</body>
+
+</html>
