@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+    <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>Main Form</title>
+            <style>
+                .pene {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    flex-direction: column;
+                }
+                .form-group {
+                    margin-bottom: 15px;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="pene">
+                <div>
+                    <h1>|Main Form|</h1>
+                </div>
+            </div>
+            <hr>
+            <br>
+            <div class="pene">
+                <div>
+                    <form id="myForm">
+                        <div class="form-group">
+                            <label for="name">Name:</label><br>
+                            <input minlength="10" type="text" name="name" id="name">
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email:</label><br>
+                            <input type="email" name="email" id="email">
+                        </div>
+                        <div class="form-group">
+                            <label for="comments">Comments:</label><br>
+                            <textarea minlength="20" name="comments" id="comments"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <h4>Pesquisa:</h4>
+                            <label>Primeira vez nesta página?</label><br>
+                            <input type="radio" name="simnao" value="Sim" id="sim"> <label for="sim">Sim</label>
+                            <input type="radio" name="simnao" value="Nao" id="nao"> <label for="nao">Não</label>
+                        </div>
+                        <div>
+                            <button type="submit">Enviar</button>
+                            <button type="button" onclick="clearForm()">Limpar</button>
+                        </div>
+                    </form>
+                </div>
+            </div>   
+        </body>
+    <script>
+        function clearForm() {
+            document.getElementById("myForm").reset();
+        }
+
+        function handleSubmit(event) {
+            event.preventDefault();
+
+            const selectedRadio = document.querySelector('input[name="simnao"]:checked');
+            let message = "";
+
+            if (selectedRadio) {
+                if (selectedRadio.value === "Sim") {
+                    message = "Volte sempre!";
+                } else {
+                    message = "Seja bem-vindo!";
+                }
+            } else {
+                message = "Por favor, responda à pesquisa.";
+            }
+
+            alert(message);
+        }
+
+        document.getElementById("myForm").addEventListener("submit", handleSubmit);
+    </script>
+</html>

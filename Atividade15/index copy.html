@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Cursos Fatec Sorocaba</title>
+
+        <style>
+            .container{
+                display:flex;
+                justify-content:center;
+                align-items:center;
+                flex-direction:column;
+                margin-top:50px;
+            }
+        </style>
+
+        </head>
+    <body>
+
+        <div class="container">
+            <h1>Cursos Fatec Sorocaba</h1>
+
+            <select id="curso" onchange="abrirCurso()">
+                <option value="">Selecione um curso</option>
+                <option>Análise e Desenvolvimento de Sistemas (ADS)</option>
+                <option>Eletrônica Automotiva</option>
+                <option>Fabricação Mecânica</option>
+                <option>Logística</option>
+                <option>Manufatura Avançada</option>
+                <option>Polímeros</option>
+                <option>Processos Metalúrgicos</option>
+                <option>Projetos Mecânicos</option>
+                <option>Sistemas Biomédicos</option>
+            </select>
+        </div>
+
+        <script>
+
+        function abrirCurso() {
+    const curso = document.getElementById("curso").value;
+
+    if (curso == "") return;
+
+    if (confirm("Deseja abrir a página do curso?")) {
+
+        let link = "";
+
+        switch (curso) {
+            case "Análise e Desenvolvimento de Sistemas (ADS)":
+                link = "https://fatecsorocaba.cps.sp.gov.br/cursos-fatec/analise-e-desenvolvimento-de-sistemas/";
+                break;
+
+            case "Eletrônica Automotiva":
+                link = "https://fatecsorocaba.cps.sp.gov.br/cursos-fatec/eletronica-automotiva/";
+                break;
+
+            case "Fabricação Mecânica":
+                link = "https://fatecsorocaba.cps.sp.gov.br/cursos-fatec/fabricacao-mecanica/";
+                break;
+
+            case "Logística":
+                link = "https://fatecsorocaba.cps.sp.gov.br/cursos-fatec/logistica/";
+                break;
+
+            case "Manufatura Avançada":
+                link = "https://fatecsorocaba.cps.sp.gov.br/cursos-fatec/manufatura-avancada/";
+                break;
+
+            case "Polímeros":
+                link = "https://fatecsorocaba.cps.sp.gov.br/cursos-fatec/polimeros/";
+                break;
+
+            case "Processos Metalúrgicos":
+                link = "https://fatecsorocaba.cps.sp.gov.br/cursos-fatec/processos-metalurgicos/";
+                break;
+
+            case "Projetos Mecânicos":
+                link = "https://fatecsorocaba.cps.sp.gov.br/cursos-fatec/projetos-mecanicos/";
+                break;
+
+            case "Sistemas Biomédicos":
+                link = "https://fatecsorocaba.cps.sp.gov.br/cursos-fatec/sistemas-biomedicos/";
+                break;
+        }
+
+        window.open(link, "_blank", "width=600,height=300");
+    }
+}
+
+        </script>
+
+    </body>
+</html>
