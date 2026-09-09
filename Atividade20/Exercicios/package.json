@@ -1,0 +1,16 @@
+{
+  "name": "semana-tecnologia",
+  "version": "1.0.0",
+  "description": "Site institucional da Semana de Tecnologia",
+  "main": "app.js",
+  "scripts": {
+    "start": "npx nodemon app.js"
+  },
+  "dependencies": {
+    "ejs": "^3.1.9",
+    "express": "^4.19.2"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.0"
+  }
+}
